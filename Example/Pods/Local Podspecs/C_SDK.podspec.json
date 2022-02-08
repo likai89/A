@@ -18,5 +18,10 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "C_SDK/Classes/**/*"
+  "source_files": "C_SDK/Classes/**/*",
+  "dependencies": {
+    "AFNetworking": [
+      "~> 4.0.1"
+    ]
+  }
 }
