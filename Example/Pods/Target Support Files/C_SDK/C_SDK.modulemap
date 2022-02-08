@@ -1,0 +1,6 @@
+framework module C_SDK {
+  umbrella header "C_SDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

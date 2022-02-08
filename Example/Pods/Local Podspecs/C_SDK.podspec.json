@@ -1,0 +1,22 @@
+{
+  "name": "C_SDK",
+  "version": "0.1.0",
+  "summary": "A short description of C_SDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/likai89/C_SDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "likai89": "515738522@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/likai89/C_SDK.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "C_SDK/Classes/**/*"
+}

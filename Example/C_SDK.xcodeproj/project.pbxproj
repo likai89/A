@@ -57,13 +57,13 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		691C5AD1A80C2195900D3E28 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		691C5AD1A80C2195900D3E28 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		71B28944B7DDB065D11C2C7A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		71B28944B7DDB065D11C2C7A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5669565BD70511830B03DA7 /* Pods-C_SDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-C_SDK_Tests.release.xcconfig"; path = "Target Support Files/Pods-C_SDK_Tests/Pods-C_SDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AEADF0A8CE7E82C7866F0C53 /* Pods-C_SDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-C_SDK_Example.release.xcconfig"; path = "Target Support Files/Pods-C_SDK_Example/Pods-C_SDK_Example.release.xcconfig"; sourceTree = "<group>"; };
-		BF484512AAB62E9306C12810 /* C_SDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = C_SDK.podspec; path = ../C_SDK.podspec; sourceTree = "<group>"; };
+		BF484512AAB62E9306C12810 /* C_SDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = C_SDK.podspec; path = ../C_SDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C004174CB437E1561C903482 /* Pods_C_SDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_C_SDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8DFE7AAFA284EA9BADCC84 /* Pods-C_SDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-C_SDK_Tests.debug.xcconfig"; path = "Target Support Files/Pods-C_SDK_Tests/Pods-C_SDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8F5F8B97396A5F2DA0CBF6D /* Pods-C_SDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-C_SDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-C_SDK_Example/Pods-C_SDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,7 +193,6 @@
 				CD8DFE7AAFA284EA9BADCC84 /* Pods-C_SDK_Tests.debug.xcconfig */,
 				A5669565BD70511830B03DA7 /* Pods-C_SDK_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -248,6 +247,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = likai89;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 723D8JB4XD;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -258,6 +260,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -494,6 +497,7 @@
 			baseConfigurationReference = F8F5F8B97396A5F2DA0CBF6D /* Pods-C_SDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 723D8JB4XD;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "C_SDK/C_SDK-Prefix.pch";
 				INFOPLIST_FILE = "C_SDK/C_SDK-Info.plist";
@@ -510,6 +514,7 @@
 			baseConfigurationReference = AEADF0A8CE7E82C7866F0C53 /* Pods-C_SDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 723D8JB4XD;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "C_SDK/C_SDK-Prefix.pch";
 				INFOPLIST_FILE = "C_SDK/C_SDK-Info.plist";

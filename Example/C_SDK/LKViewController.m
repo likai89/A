@@ -7,7 +7,7 @@
 //
 
 #import "LKViewController.h"
-
+#import "AAA.h"
 @interface LKViewController ()
 
 @end
@@ -17,7 +17,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor redColor];
+    AAA * test_a = [[AAA alloc]init];
+    [test_a testP];
 }
 
 - (void)didReceiveMemoryWarning
