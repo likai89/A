@@ -8,6 +8,7 @@
 
 #import "LKViewController.h"
 #import "AAA.h"
+#import "AFNetworking.h"
 @interface LKViewController ()
 
 @end
@@ -20,6 +21,7 @@
     self.view.backgroundColor = [UIColor redColor];
     AAA * test_a = [[AAA alloc]init];
     [test_a testP];
+
 }
 
 - (void)didReceiveMemoryWarning
