@@ -9,6 +9,7 @@
 #import "LKViewController.h"
 #import "AAA.h"
 #import "AFNetworking.h"
+#import "BaseClient.h"
 @interface LKViewController ()
 
 @end
@@ -21,7 +22,12 @@
     self.view.backgroundColor = [UIColor redColor];
     AAA * test_a = [[AAA alloc]init];
     [test_a testP];
+    [BaseClient httpType:POST andURL:@"" andParam:@{} andSuccessBlock:^(NSURL *URL, NSDictionary * data) {
+    
 
+    } andFailBlock:^(NSURL *URL, NSError *error) {
+       
+    }];
 }
 
 - (void)didReceiveMemoryWarning

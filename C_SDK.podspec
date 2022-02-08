@@ -40,4 +40,5 @@ TODO: Add long description of the pod here.
 #   s.frameworks = 'UIKit', 'MapKit'
    s.dependency 'AFNetworking', '~> 4.0.1'
    s.dependency 'MBProgressHUD', '~> 1.1.0'
+   s.dependency 'Reachability', '~> 3.2'
 end

@@ -6,7 +6,7 @@
 //
 
 #import "Loading.h"
-#import <MBProgressHUD.h>
+#import "MBProgressHUD.h"
 
 @implementation Loading
 
@@ -16,15 +16,15 @@
 //    UIImage *image = [UIImage imageNamed:@"jiazai"];
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 //    hud.customView = imageView;
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.bezelView.color = [UIColor clearColor];
-    hud.contentColor = [UIColor colorWithHexString:kcolor_666666];
-    hud.label.numberOfLines = 0;
-    hud.label.font = kfont_16;
-    hud.bezelView.alpha = 1.0;
-    NSString *string = [NSString stringWithFormat:@"\n%@",message];
-    hud.label.text = NSLocalizedString(string, @"HUD completed title");
+//    hud.mode = MBProgressHUDModeIndeterminate;
+//    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+//    hud.bezelView.color = [UIColor clearColor];
+//    hud.contentColor = [UIColor colorWithHexString:kcolor_666666];
+//    hud.label.numberOfLines = 0;
+//    hud.label.font = kfont_16;
+//    hud.bezelView.alpha = 1.0;
+//    NSString *string = [NSString stringWithFormat:@"\n%@",message];
+//    hud.label.text = NSLocalizedString(string, @"HUD completed title");
 //    CABasicAnimation *layer = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
 //    layer.toValue = @(2 * M_PI);
 //    layer.duration = 1.25;

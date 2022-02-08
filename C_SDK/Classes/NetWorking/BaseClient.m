@@ -16,7 +16,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         //Clicent对象被创建时 属性Manager应该被创建 并初始化 否则manager为空 无法进行网络请求
-        client = [[self alloc]initWithBaseURL:Main_Url];
+        client = [[self alloc]initWithBaseURL:@""];
     });
     return client;
 }
@@ -45,33 +45,33 @@
 {
 //    [_manager.requestSerializer setValue:[TFUserTool getUser].token forHTTPHeaderField:@"Access-Token"];
 //    [_manager.requestSerializer setValue:[TFUserTool getUser].token forHTTPHeaderField:@"X-CSRFToken"];
-    LDLog(@"--%@--",[TFUserTool getUser].token);
+//    LDLog(@"--%@--",[TFUserTool getUser].token);
     //🐎勒个壁
-    if([TFUserTool getUser].token.length){
+//    if([TFUserTool getUser].token.length){
 //        [_manager.requestSerializer setValue:[NSString stringWithFormat:@"Token %@",[TFUserTool getUser].token] forHTTPHeaderField:@"Authorization"];
         ///强总 正式服的token
 //        [_manager.requestSerializer setValue:[NSString stringWithFormat:@"Token %@",@"169d4844de6f0868c4ca5db2f8de7b7e82a6fe24"] forHTTPHeaderField:@"Authorization"];
         ///测试服token  f246a0fb1df15476654c472ad76ac4cb4c516bd6
 //        [_manager.requestSerializer setValue:[NSString stringWithFormat:@"Token %@",@"f246a0fb1df15476654c472ad76ac4cb4c516bd6"] forHTTPHeaderField:@"Authorization"];
-    }
+//    }
     [_manager.requestSerializer setValue:[NSString stringWithFormat:@"Token %@",@"f246a0fb1df15476654c472ad76ac4cb4c516bd6"] forHTTPHeaderField:@"Authorization"];
 }
 - (void)cleanToken
 {
     [_manager.requestSerializer setValue:nil forHTTPHeaderField:@"Authorization"];
-    LDLog(@"退出登录清除token%@",_manager.requestSerializer.HTTPRequestHeaders);
+//    LDLog(@"退出登录清除token%@",_manager.requestSerializer.HTTPRequestHeaders);
 }
 #pragma mark -- 公共的请求方法
 
 + (NSURL *)httpType:(BASE_TYPE)type andURL:(NSString *)url andParam:(NSDictionary *)param andSuccessBlock:(httpSuccessBlock)sucBlock andFailBlock:(httpFailBlock)failBlock
 {
    
-    if (![url isEqualToString:Post_Wechat_Authorization_Api] || ![url isEqualToString:Post_users_user_register_Api] || ![url isEqualToString:Post_users_user_get_SMS_Api] || ![url isEqualToString:Get_Media_Config_Api] ) {
-        [[BaseClient shareClient] setFeildHandleToken];
-    }
-    if ([url isEqualToString:Get_Media_Config_Api]) {
-        [[BaseClient shareClient] cleanToken];
-    }
+//    if (![url isEqualToString:Post_Wechat_Authorization_Api] || ![url isEqualToString:Post_users_user_register_Api] || ![url isEqualToString:Post_users_user_get_SMS_Api] || ![url isEqualToString:Get_Media_Config_Api] ) {
+//        [[BaseClient shareClient] setFeildHandleToken];
+//    }
+//    if ([url isEqualToString:Get_Media_Config_Api]) {
+//        [[BaseClient shareClient] cleanToken];
+//    }
    // NSLog(@"+++%@+++",[[BaseClient shareClient].manager.requestSerializer HTTPRequestHeaders]);
     
     if ([ISNull isNilOfSender:url]) {
@@ -97,7 +97,7 @@
         }
     }else{
         NSLog(@"当前无网");
-        [MBProgressHUD showError:@"当前无网络连接"];
+//        [MBProgressHUD showError:@"当前无网络连接"];
         return nil;
     }
     return nil;
@@ -134,7 +134,7 @@
                     sucBlock(returnUrl,str);
                 }else{
                     if ([object[@"code"] intValue] == 402) {
-                        [[NSNotificationCenter defaultCenter] postNotificationName:VipExpire402Noti object:nil];
+//                        [[NSNotificationCenter defaultCenter] postNotificationName:VipExpire402Noti object:nil];
                     }else{
                         sucBlock(returnUrl,object);//其他情况就是json
                     }
@@ -144,8 +144,8 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
          dispatch_async(dispatch_get_main_queue(), ^{
              if ([error.localizedDescription isEqualToString:@"Request failed: unauthorized (401)"]) {
-                 LDLog(@"账号在异地登录了 你被踢下线了.....");
-                 [[NSNotificationCenter defaultCenter] postNotificationName:AccountReloginNoti object:nil];
+//                 LDLog(@"账号在异地登录了 你被踢下线了.....");
+//                 [[NSNotificationCenter defaultCenter] postNotificationName:AccountReloginNoti object:nil];
              }
              failBlock(returnUrl,error);
          });
@@ -178,7 +178,7 @@
        
        NSString * str = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
        
-       LDLog(@"接口返回数据(可直接在json格式化工具中查看)*************%@",str);
+//       LDLog(@"接口返回数据(可直接在json格式化工具中查看)*************%@",str);
        dispatch_async(dispatch_get_main_queue(), ^{
        
        if (responseObject == nil) {
@@ -192,7 +192,7 @@
        {
            id object = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
            if ([object[@"code"] intValue] == 402) {
-               [[NSNotificationCenter defaultCenter] postNotificationName:VipExpire402Noti object:nil];
+//               [[NSNotificationCenter defaultCenter] postNotificationName:VipExpire402Noti object:nil];
            }else{
                sucBlock(retureUrl,object);
            }
@@ -202,8 +202,8 @@
    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        dispatch_async(dispatch_get_main_queue(), ^{
            if ([error.localizedDescription isEqualToString:@"Request failed: unauthorized (401)"]) {
-               LDLog(@"账号在异地登录了 你被踢下线了.....");
-               [[NSNotificationCenter defaultCenter] postNotificationName:AccountReloginNoti object:nil];
+//               LDLog(@"账号在异地登录了 你被踢下线了.....");
+//               [[NSNotificationCenter defaultCenter] postNotificationName:AccountReloginNoti object:nil];
            }
            failBlock(retureUrl,error);
        });
@@ -232,10 +232,10 @@
         {
             id object = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             if ([object[@"code"] intValue] == 402) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:VipExpire402Noti object:nil];
+//                [[NSNotificationCenter defaultCenter] postNotificationName:VipExpire402Noti object:nil];
             }else{
                 NSString * str = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
-                LDLog(@"接口返回数据(可直接在json格式化工具中查看)*************%@",str);
+//                LDLog(@"接口返回数据(可直接在json格式化工具中查看)*************%@",str);
                 sucBlock(returnURL,object);
             }
         }
@@ -244,8 +244,8 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([error.localizedDescription isEqualToString:@"Request failed: unauthorized (401)"]) {
-                LDLog(@"账号在异地登录了 你被踢下线了.....");
-                [[NSNotificationCenter defaultCenter] postNotificationName:AccountReloginNoti object:nil];
+//                LDLog(@"账号在异地登录了 你被踢下线了.....");
+//                [[NSNotificationCenter defaultCenter] postNotificationName:AccountReloginNoti object:nil];
             }
             failBlock(returnURL,error);
         });
@@ -270,7 +270,7 @@
         {
             id object = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             if ([object[@"code"] intValue] == 402) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:VipExpire402Noti object:nil];
+//                [[NSNotificationCenter defaultCenter] postNotificationName:VipExpire402Noti object:nil];
             }else{
                 sucBlock(returnURL,object);
             }
@@ -279,8 +279,8 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([error.localizedDescription isEqualToString:@"Request failed: unauthorized (401)"]) {
-                LDLog(@"账号在异地登录了 你被踢下线了.....");
-                [[NSNotificationCenter defaultCenter] postNotificationName:AccountReloginNoti object:nil];
+//                LDLog(@"账号在异地登录了 你被踢下线了.....");
+//                [[NSNotificationCenter defaultCenter] postNotificationName:AccountReloginNoti object:nil];
             }
             failBlock(returnURL,error);
         });
